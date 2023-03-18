@@ -24,7 +24,7 @@ homeassistant:
     wlanthermo_timer: !include_dir_merge_named wlanthermo_timer
 ```
 
-In `wlanthermo/wlanthermo_mqtt.yaml` adapt the MQTT topic of your WLANThermo: `state_topic: "WLanThermo/MINIV3/status/data"` and `state_topic: "WLanThermo/MINIV3/status/settings"`. Change `WLanThermo/MINIV3` to match your main topic and device name.
+In `wlanthermo/wlanthermo_mqtt.yaml` and `wlanthermo/wlanthermo_template.yaml` adapt the MQTT topic of your WLANThermo: `state_topic: "WLanThermo/MINIV3/status/data"`, `state_topic: "WLanThermo/MINIV3/status/settings"` and `topic: WLanThermo/MINIV3/set/channels`. Change `WLanThermo/MINIV3` to match your main topic and device name.
 
 
 ## Home Assistant Lovelace
