@@ -1,0 +1,288 @@
+automation:
+  - id: '1643554744561_1_max'
+    alias: WLanThermo Channel 1 Notify Max
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_1_all
+        from: 0
+        to: 1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_1_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {% if is_state('input_boolean.wlanthermo_channel_1_timer','on') %}
+            {{ "Sensor '" + state_attr('sensor.wlanthermo_channel_1_all','name') + "' hat Zieltemperatur erreicht (" + states('sensor.wlanthermo_channel_1_all') + " °C)" }}
+            {% else %}
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_1_all','name') + "' zu hoch (" + states('sensor.wlanthermo_channel_1_all') + " °C)" }}
+            {% endif %}
+    mode: single
+
+  - id: '1643554744561_1_min'
+    alias: WLanThermo Channel 1 Notify Min
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_1_all
+        from: 0
+        to: -1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_1_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_1_all', 'name') + "' zu niedrig (" + states('sensor.wlanthermo_channel_1_all') + " °C)" }}
+    mode: single
+
+  - id: '1643554744561_2_max'
+    alias: WLanThermo Channel 2 Notify Max
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_2_all
+        from: 0
+        to: 1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_2_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {% if is_state('input_boolean.wlanthermo_channel_2_timer','on') %}
+            {{ "Sensor '" + state_attr('sensor.wlanthermo_channel_2_all','name') + "' hat Zieltemperatur erreicht (" + states('sensor.wlanthermo_channel_2_all') + " °C)" }}
+            {% else %}
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_2_all','name') + "' zu hoch (" + states('sensor.wlanthermo_channel_2_all') + " °C)" }}
+            {% endif %}
+    mode: single
+
+  - id: '1643554744561_2_min'
+    alias: WLanThermo Channel 2 Notify Min
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_2_all
+        from: 0
+        to: -1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_2_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_2_all', 'name') + "' zu niedrig (" + states('sensor.wlanthermo_channel_2_all') + " °C)" }}
+    mode: single
+
+  - id: '1643554744561_3_max'
+    alias: WLanThermo Channel 3 Notify Max
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_3_all
+        from: 0
+        to: 1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_3_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {% if is_state('input_boolean.wlanthermo_channel_3_timer','on') %}
+            {{ "Sensor '" + state_attr('sensor.wlanthermo_channel_3_all','name') + "' hat Zieltemperatur erreicht (" + states('sensor.wlanthermo_channel_3_all') + " °C)" }}
+            {% else %}
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_3_all','name') + "' zu hoch (" + states('sensor.wlanthermo_channel_3_all') + " °C)" }}
+            {% endif %}
+    mode: single
+
+  - id: '1643554744561_3_min'
+    alias: WLanThermo Channel 3 Notify Min
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_3_all
+        from: 0
+        to: -1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_3_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_3_all', 'name') + "' zu niedrig (" + states('sensor.wlanthermo_channel_3_all') + " °C)" }}
+    mode: single
+
+  - id: '1643554744561_4_max'
+    alias: WLanThermo Channel 4 Notify Max
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_4_all
+        from: 0
+        to: 1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_4_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {% if is_state('input_boolean.wlanthermo_channel_4_timer','on') %}
+            {{ "Sensor '" + state_attr('sensor.wlanthermo_channel_4_all','name') + "' hat Zieltemperatur erreicht (" + states('sensor.wlanthermo_channel_4_all') + " °C)" }}
+            {% else %}
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_4_all','name') + "' zu hoch (" + states('sensor.wlanthermo_channel_4_all') + " °C)" }}
+            {% endif %}
+    mode: single
+
+  - id: '1643554744561_4_min'
+    alias: WLanThermo Channel 4 Notify Min
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_4_all
+        from: 0
+        to: -1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_4_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_4_all', 'name') + "' zu niedrig (" + states('sensor.wlanthermo_channel_4_all') + " °C)" }}
+    mode: single
+
+  - id: '1643554744561_5_max'
+    alias: WLanThermo Channel 5 Notify Max
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_5_all
+        from: 0
+        to: 1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_5_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {% if is_state('input_boolean.wlanthermo_channel_5_timer','on') %}
+            {{ "Sensor '" + state_attr('sensor.wlanthermo_channel_5_all','name') + "' hat Zieltemperatur erreicht (" + states('sensor.wlanthermo_channel_5_all') + " °C)" }}
+            {% else %}
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_5_all','name') + "' zu hoch (" + states('sensor.wlanthermo_channel_5_all') + " °C)" }}
+            {% endif %}
+    mode: single
+
+  - id: '1643554744561_5_min'
+    alias: WLanThermo Channel 5 Notify Min
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_5_all
+        from: 0
+        to: -1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_5_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_5_all', 'name') + "' zu niedrig (" + states('sensor.wlanthermo_channel_5_all') + " °C)" }}
+    mode: single
+
+  - id: '1643554744561_6_max'
+    alias: WLanThermo Channel 6 Notify Max
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_6_all
+        from: 0
+        to: 1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_6_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {% if is_state('input_boolean.wlanthermo_channel_6_timer','on') %}
+            {{ "Sensor '" + state_attr('sensor.wlanthermo_channel_6_all','name') + "' hat Zieltemperatur erreicht (" + states('sensor.wlanthermo_channel_6_all') + " °C)" }}
+            {% else %}
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_6_all','name') + "' zu hoch (" + states('sensor.wlanthermo_channel_6_all') + " °C)" }}
+            {% endif %}
+    mode: single
+
+  - id: '1643554744561_6_min'
+    alias: WLanThermo Channel 6 Notify Min
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_6_all
+        from: 0
+        to: -1
+        attribute: inRange
+        for:
+          seconds: 30
+    condition:
+      - condition: template
+        value_template: >-
+          {{ is_state('switch.wlanthermo_channel_6_push', 'on') }}
+    action:
+      - service: notify.mobile_app_sm_g970f
+        data:
+          message: >-
+            {{ "Temperatur von Sensor '" + state_attr('sensor.wlanthermo_channel_6_all', 'name') + "' zu niedrig (" + states('sensor.wlanthermo_channel_6_all') + " °C)" }}
+    mode: single

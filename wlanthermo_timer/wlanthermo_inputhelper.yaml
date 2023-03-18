@@ -1,0 +1,19 @@
+input_boolean:
+  wlanthermo_channel_1_timer:
+    name: Benachrichtigen 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_2_timer:
+    name: Benachrichtigen 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_3_timer:
+    name: Benachrichtigen 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_4_timer:
+    name: Benachrichtigen 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_5_timer:
+    name: Benachrichtigen 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_6_timer:
+    name: Benachrichtigen 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer

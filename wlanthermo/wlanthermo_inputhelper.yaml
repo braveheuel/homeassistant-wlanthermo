@@ -1,0 +1,48 @@
+input_datetime:
+  wlanthermo_became_available:
+    name: WLANThermo Became Available
+    has_date: true
+    has_time: true
+    icon: mdi:clock
+
+input_number:
+  wlanthermo_pitmaster_temp:
+    name: Pit Solltemperatur
+    min: 0
+    max: 250
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer
+    mode: box
+
+input_text:
+  wlanthermo_channel_1_name:
+    min: 1
+    max: 10
+    name: Kanal 1 Name
+    initial: Kanal 1
+  wlanthermo_channel_2_name:
+    min: 1
+    max: 10
+    name: Kanal 2 Name
+    initial: Kanal 2
+  wlanthermo_channel_3_name:
+    min: 1
+    max: 10
+    name: Kanal 3 Name
+    initial: Kanal 3
+  wlanthermo_channel_4_name:
+    min: 1
+    max: 10
+    name: Kanal 4 Name
+    initial: Kanal 4
+  wlanthermo_channel_5_name:
+    min: 1
+    max: 10
+    name: Kanal 5 Name
+    initial: Kanal 5
+  wlanthermo_channel_6_name:
+    min: 1
+    max: 10
+    name: Kanal 6 Name
+    initial: Kanal 6

@@ -1,0 +1,254 @@
+automation:
+
+  - id: '1565774399160_1'
+    alias: WLANThermo update channel 1 name from MQTT
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_1_all
+        attribute: name
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unknown
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.wlanthermo_channel_1_all
+            state: unavailable
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.wlanthermo_channel_1_name
+          value: '{{ state_attr(''sensor.wlanthermo_channel_1_all'', ''name'') }}'
+
+  - id: '1565774399160_2'
+    alias: WLANThermo update channel 2 name from MQTT
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_2_all
+        attribute: name
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unknown
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.wlanthermo_channel_2_all
+            state: unavailable
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.wlanthermo_channel_2_name
+          value: '{{ state_attr(''sensor.wlanthermo_channel_2_all'', ''name'') }}'
+
+  - id: '1565774399160_3'
+    alias: WLANThermo update channel 3 name from MQTT
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_3_all
+        attribute: name
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unknown
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.wlanthermo_channel_3_all
+            state: unavailable
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.wlanthermo_channel_3_name
+          value: '{{ state_attr(''sensor.wlanthermo_channel_3_all'', ''name'') }}'
+
+  - id: '1565774399160_4'
+    alias: WLANThermo update channel 4 name from MQTT
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_4_all
+        attribute: name
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unknown
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.wlanthermo_channel_4_all
+            state: unavailable
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.wlanthermo_channel_4_name
+          value: '{{ state_attr(''sensor.wlanthermo_channel_4_all'', ''name'') }}'
+
+  - id: '1565774399160_5'
+    alias: WLANThermo update channel 5 name from MQTT
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_5_all
+        attribute: name
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unknown
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.wlanthermo_channel_5_all
+            state: unavailable
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.wlanthermo_channel_5_name
+          value: '{{ state_attr(''sensor.wlanthermo_channel_5_all'', ''name'') }}'
+
+  - id: '1565774399160_6'
+    alias: WLANThermo update channel 6 name from MQTT
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo_channel_6_all
+        attribute: name
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unknown
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.wlanthermo_channel_6_all
+            state: unavailable
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.wlanthermo_channel_6_name
+          value: '{{ state_attr(''sensor.wlanthermo_channel_6_all'', ''name'') }}'
+
+  - id: '1565867288674_1'
+    alias: WLANThermo set channel 1 name
+    mode: queued
+    trigger:
+    - entity_id: input_text.wlanthermo_channel_1_name
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/channels
+        retain: true
+        payload: '{{ ''{"number":1,"name":"''+states(''input_text.wlanthermo_channel_1_name'')+''"}''
+          }}'
+
+  - id: '1565867288676_1'
+    alias: WLANThermo set channel 2 name
+    mode: queued
+    trigger:
+    - entity_id: input_text.wlanthermo_channel_2_name
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/channels
+        retain: true
+        payload: '{{ ''{"number":2,"name":"''+states(''input_text.wlanthermo_channel_2_name'')+''"}''
+          }}'
+
+  - id: '1565867288678_1'
+    alias: WLANThermo set channel 3 name
+    mode: queued
+    trigger:
+    - entity_id: input_text.wlanthermo_channel_3_name
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/channels
+        retain: true
+        payload: '{{ ''{"number":3,"name":"''+states(''input_text.wlanthermo_channel_3_name'')+''"}''
+          }}'
+
+  - id: '1565867288680_1'
+    alias: WLANThermo set channel 4 name
+    mode: queued
+    trigger:
+    - entity_id: input_text.wlanthermo_channel_4_name
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/channels
+        retain: true
+        payload: '{{ ''{"number":4,"name":"''+states(''input_text.wlanthermo_channel_4_name'')+''"}''
+          }}'
+
+  - id: '1565867288682_1'
+    alias: WLANThermo set channel 5 name
+    mode: queued
+    trigger:
+    - entity_id: input_text.wlanthermo_channel_5_name
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/channels
+        retain: true
+        payload: '{{ ''{"number":5,"name":"''+states(''input_text.wlanthermo_channel_5_name'')+''"}''
+          }}'
+
+  - id: '1565867288684_1'
+    alias: WLANThermo set channel 6 name
+    mode: queued
+    trigger:
+    - entity_id: input_text.wlanthermo_channel_6_name
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/channels
+        retain: true
+        payload: '{{ ''{"number":6,"name":"''+states(''input_text.wlanthermo_channel_6_name'')+''"}''
+          }}'
+
+  - id: '1565867288687'
+    alias: WLANThermo set pitmaster
+    mode: queued
+    trigger:
+    - entity_id: input_number.wlanthermo_pitmaster_temp
+      platform: state
+    condition: []
+    action:
+    - service: mqtt.publish
+      data_template:
+        topic: WLanThermo/MINIV3/set/pitmaster
+        retain: true
+        payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(states(''select.wlanthermo_pitmaster_channel''))+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(states(''select.wlanthermo_pitmaster_profile''))+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
+
+  - id: '1565867288687_wt_avail'
+    alias: WLANThermo Became Available
+    description: ''
+    mode: queued
+    trigger:
+      - platform: state
+        entity_id: sensor.wlanthermo
+        from: unavailable
+    condition: []
+    action:
+      - service: input_datetime.set_datetime
+        data:
+          timestamp: "{{ now().timestamp() }}"
+        target:
+          entity_id: input_datetime.wlanthermo_became_available
+
