@@ -281,7 +281,7 @@ template:
           mdi:thermometer
           {% endif %}
           {% endif %}
-          
+
   # Channel 4
   - sensor:
       - unique_id: wlanthermo_channel_4_all
@@ -815,7 +815,7 @@ template:
           data_template:
             topic: WLanThermo/MINIV3/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(states(''select.wlanthermo_pitmaster_channel''))+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(option)+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(option)+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
       options: |-
         [
         {% if not is_state('sensor.wlanthermo_settings', 'unavailable') and (not is_state('sensor.wlanthermo_settings', 'unknown')) %}
@@ -831,7 +831,8 @@ template:
     - unique_id: wlanthermo_pitmaster_channel
       name: wlanthermo_pitmaster_channel
       icon: mdi:pound
-      state: "#{{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel') }} {{ state_attr('sensor.wlanthermo_channel_'~(state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel'))~'_all', 'name') }}"
+      state: >
+        #{{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel') }} {% if not is_state('sensor.wlanthermo_channel_'~(state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel'))~'_all','unavailable') and item.temp < 999 %}{{ state_attr('sensor.wlanthermo_channel_'~(state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel'))~'_all', 'name') }}{% else %}(unavailable){% endif %}
       availability: >
         {{ not is_state('sensor.wlanthermo_pitmaster_value', 'unavailable') }}
       select_option:
@@ -839,15 +840,19 @@ template:
           data_template:
             topic: WLanThermo/MINIV3/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(option)+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(states(''select.wlanthermo_pitmaster_profile''))+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(option)+1)+'',"pid":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
       options: |-
         [
         {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
         {% for item in state_attr('sensor.wlanthermo', 'channel') %}
         {% if not is_state('sensor.wlanthermo_channel_'~item.number~'_all','unavailable') and item.temp < 999 %}
         '#{{ item.number }} {{ item.name }}',
+        {% else %}
+        '#{{ item.number }} (unavailable)',
         {% endif %}
         {% endfor %}
+        {% else %}
+        '1', '2', '3', '4', '5', '6', '7', '8'
         {% endif %}
         ]
 
@@ -873,7 +878,7 @@ template:
           data_template:
             topic: WLanThermo/MINIV3/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(states(''select.wlanthermo_pitmaster_channel''))+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(states(''select.wlanthermo_pitmaster_profile''))+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+option+''"}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+option+''"}]''}}'
       options: |-
         [
         {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
@@ -896,7 +901,7 @@ template:
           data_template:
             topic: WLanThermo/MINIV3/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(states(''select.wlanthermo_pitmaster_channel''))+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(states(''select.wlanthermo_pitmaster_profile''))+'',"value":''~value+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~value+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
         min: 0
         max: 100
         step: 1
