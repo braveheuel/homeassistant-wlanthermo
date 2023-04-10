@@ -4,7 +4,6 @@ template:
       - unique_id: wlanthermo_pitmaster_1_all
         unit_of_measurement: "%"
         state_class: measurement
-        device_class: power_factor
         availability: >
           {{ not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) }}
         attributes:
