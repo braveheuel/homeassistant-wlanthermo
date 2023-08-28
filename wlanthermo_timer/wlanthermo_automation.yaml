@@ -13,12 +13,12 @@ automation:
         entity_id: input_boolean.wlanthermo_channel_1_timer
         state: 'on'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: >-
             {{ "Zieltemperatur von Sensor '" +
-            state_attr('sensor.wlanthermo_channel_1_all', 'name') + "'
-            bald erreicht (" + states('sensor.wlanthermo_channel_1_all') + " °C)" }}
+            state_attr('sensor.template_wlanthermo_channel_1_all', 'name') + "'
+            bald erreicht (" + states('sensor.template_wlanthermo_channel_1_all') + " °C)" }}
 
   - id: '1643554744561_2_timer'
     alias: WLANThermo Channel 2 Timer
@@ -34,12 +34,12 @@ automation:
         entity_id: input_boolean.wlanthermo_channel_2_timer
         state: 'on'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: >-
             {{ "Zieltemperatur von Sensor '" +
-            state_attr('sensor.wlanthermo_channel_2_all', 'name') + "'
-            bald erreicht (" + states('sensor.wlanthermo_channel_2_all') + " °C)" }}
+            state_attr('sensor.template_wlanthermo_channel_2_all', 'name') + "'
+            bald erreicht (" + states('sensor.template_wlanthermo_channel_2_all') + " °C)" }}
 
   - id: '1643554744561_3_timer'
     alias: WLANThermo Channel 3 Timer
@@ -55,12 +55,12 @@ automation:
         entity_id: input_boolean.wlanthermo_channel_3_timer
         state: 'on'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: >-
             {{ "Zieltemperatur von Sensor '" +
-            state_attr('sensor.wlanthermo_channel_3_all', 'name') + "'
-            bald erreicht (" + states('sensor.wlanthermo_channel_3_all') + " °C)" }}
+            state_attr('sensor.template_wlanthermo_channel_3_all', 'name') + "'
+            bald erreicht (" + states('sensor.template_wlanthermo_channel_3_all') + " °C)" }}
 
   - id: '1643554744561_4_timer'
     alias: WLANThermo Channel 4 Timer
@@ -76,12 +76,12 @@ automation:
         entity_id: input_boolean.wlanthermo_channel_4_timer
         state: 'on'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: >-
             {{ "Zieltemperatur von Sensor '" +
-            state_attr('sensor.wlanthermo_channel_4_all', 'name') + "'
-            bald erreicht (" + states('sensor.wlanthermo_channel_4_all') + " °C)" }}
+            state_attr('sensor.template_wlanthermo_channel_4_all', 'name') + "'
+            bald erreicht (" + states('sensor.template_wlanthermo_channel_4_all') + " °C)" }}
 
   - id: '1643554744561_5_timer'
     alias: WLANThermo Channel 5 Timer
@@ -97,12 +97,12 @@ automation:
         entity_id: input_boolean.wlanthermo_channel_5_timer
         state: 'on'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: >-
             {{ "Zieltemperatur von Sensor '" +
-            state_attr('sensor.wlanthermo_channel_5_all', 'name') + "'
-            bald erreicht (" + states('sensor.wlanthermo_channel_5_all') + " °C)" }}
+            state_attr('sensor.template_wlanthermo_channel_5_all', 'name') + "'
+            bald erreicht (" + states('sensor.template_wlanthermo_channel_5_all') + " °C)" }}
 
   - id: '1643554744561_6_timer'
     alias: WLANThermo Channel 6 Timer
@@ -118,12 +118,12 @@ automation:
         entity_id: input_boolean.wlanthermo_channel_6_timer
         state: 'on'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: >-
             {{ "Zieltemperatur von Sensor '" +
-            state_attr('sensor.wlanthermo_channel_6_all', 'name') + "'
-            bald erreicht (" + states('sensor.wlanthermo_channel_6_all') + " °C)" }}
+            state_attr('sensor.template_wlanthermo_channel_6_all', 'name') + "'
+            bald erreicht (" + states('sensor.template_wlanthermo_channel_6_all') + " °C)" }}
 
   - id: '1643554744561_pit'
     alias: WLANThermo Pit Problem
@@ -149,6 +149,6 @@ automation:
         entity_id: sensor.wlanthermo_pitmaster_value_avg
         above: '0'
     action:
-      - service: notify.mobile_app_sm_g970f
+      - service: notify.signal_me
         data:
           message: Mit dem Grill stimmt etwas nicht, Solltemperatur wird nicht erreicht!

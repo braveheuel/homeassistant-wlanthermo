@@ -51,7 +51,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set pmTyp = state_attr('sensor.wlanthermo_pitmaster_1_all', 'type') %}
+          {% set pmTyp = state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'type') %}
           {% if pmTyp == 'off' %}
           mdi:fan-off
           {% else %}
@@ -83,7 +83,7 @@ template:
             {% else %}
             0
             {% endif %}
-          friendly_name: "{{ '#1 ' ~ state_attr('sensor.wlanthermo_channel_1_all', 'name') }}"
+          friendly_name: "{{ '#1 ' ~ state_attr('sensor.template_wlanthermo_channel_1_all', 'name') }}"
           color: >
             {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
             {{ state_attr('sensor.wlanthermo', 'channel')[0]['color'] }}
@@ -124,7 +124,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set inRange = state_attr('sensor.wlanthermo_channel_1_all', 'inRange') | int(0) %}
+          {% set inRange = state_attr('sensor.template_wlanthermo_channel_1_all', 'inRange') | int(0) %}
           {% if inRange > 0 %}
           mdi:fire-alert
           {% else %}
@@ -156,7 +156,7 @@ template:
             {% else %}
             0
             {% endif %}
-          friendly_name: "{{ '#2 ' ~ state_attr('sensor.wlanthermo_channel_2_all', 'name') }}"
+          friendly_name: "{{ '#2 ' ~ state_attr('sensor.template_wlanthermo_channel_2_all', 'name') }}"
           color: >
             {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
             {{ state_attr('sensor.wlanthermo', 'channel')[1]['color'] }}
@@ -197,7 +197,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set inRange = state_attr('sensor.wlanthermo_channel_2_all', 'inRange') | int(0) %}
+          {% set inRange = state_attr('sensor.template_wlanthermo_channel_2_all', 'inRange') | int(0) %}
           {% if inRange > 0 %}
           mdi:fire-alert
           {% else %}
@@ -229,7 +229,7 @@ template:
             {% else %}
             0
             {% endif %}
-          friendly_name: "{{ '#3 ' ~ state_attr('sensor.wlanthermo_channel_3_all', 'name') }}"
+          friendly_name: "{{ '#3 ' ~ state_attr('sensor.template_wlanthermo_channel_3_all', 'name') }}"
           color: >
             {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
             {{ state_attr('sensor.wlanthermo', 'channel')[2]['color'] }}
@@ -270,7 +270,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set inRange = state_attr('sensor.wlanthermo_channel_3_all', 'inRange') | int(0) %}
+          {% set inRange = state_attr('sensor.template_wlanthermo_channel_3_all', 'inRange') | int(0) %}
           {% if inRange > 0 %}
           mdi:fire-alert
           {% else %}
@@ -302,7 +302,7 @@ template:
             {% else %}
             0
             {% endif %}
-          friendly_name: "{{ '#4 ' ~ state_attr('sensor.wlanthermo_channel_4_all', 'name') }}"
+          friendly_name: "{{ '#4 ' ~ state_attr('sensor.template_wlanthermo_channel_4_all', 'name') }}"
           color: >
             {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
             {{ state_attr('sensor.wlanthermo', 'channel')[3]['color'] }}
@@ -343,7 +343,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set inRange = state_attr('sensor.wlanthermo_channel_4_all', 'inRange') | int(0) %}
+          {% set inRange = state_attr('sensor.template_wlanthermo_channel_4_all', 'inRange') | int(0) %}
           {% if inRange > 0 %}
           mdi:fire-alert
           {% else %}
@@ -375,7 +375,7 @@ template:
             {% else %}
             0
             {% endif %}
-          friendly_name: "{{ '#5 ' ~ state_attr('sensor.wlanthermo_channel_5_all', 'name') }}"
+          friendly_name: "{{ '#5 ' ~ state_attr('sensor.template_wlanthermo_channel_5_all', 'name') }}"
           color: >
             {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
             {{ state_attr('sensor.wlanthermo', 'channel')[4]['color'] }}
@@ -416,7 +416,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set inRange = state_attr('sensor.wlanthermo_channel_5_all', 'inRange') | int(0) %}
+          {% set inRange = state_attr('sensor.template_wlanthermo_channel_5_all', 'inRange') | int(0) %}
           {% if inRange > 0 %}
           mdi:fire-alert
           {% else %}
@@ -448,7 +448,7 @@ template:
             {% else %}
             0
             {% endif %}
-          friendly_name: "{{ '#6 ' ~ state_attr('sensor.wlanthermo_channel_6_all', 'name') }}"
+          friendly_name: "{{ '#6 ' ~ state_attr('sensor.template_wlanthermo_channel_6_all', 'name') }}"
           color: >
             {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
             {{ state_attr('sensor.wlanthermo', 'channel')[5]['color'] }}
@@ -489,7 +489,7 @@ template:
           0
           {% endif %}
         icon: >
-          {% set inRange = state_attr('sensor.wlanthermo_channel_6_all', 'inRange') | int(0) %}
+          {% set inRange = state_attr('sensor.template_wlanthermo_channel_6_all', 'inRange') | int(0) %}
           {% if inRange > 0 %}
           mdi:fire-alert
           {% else %}
@@ -525,49 +525,49 @@ template:
       - name: wlanthermo_channel_1_color
         unique_id: wlanthermo_channel_1_color
         availability: >
-          {{ not is_state('sensor.wlanthermo_channel_1_all','unavailable') }}
+          {{ not is_state('sensor.template_wlanthermo_channel_1_all','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_channel_1_all','color') }}
+          {{ state_attr('sensor.template_wlanthermo_channel_1_all','color') }}
 
   - sensor:
       - name: wlanthermo_channel_2_color
         unique_id: wlanthermo_channel_2_color
         availability: >
-          {{ not is_state('sensor.wlanthermo_channel_2_all','unavailable') }}
+          {{ not is_state('sensor.template_wlanthermo_channel_2_all','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_channel_2_all','color') }}
+          {{ state_attr('sensor.template_wlanthermo_channel_2_all','color') }}
 
   - sensor:
       - name: wlanthermo_channel_3_color
         unique_id: wlanthermo_channel_3_color
         availability: >
-          {{ not is_state('sensor.wlanthermo_channel_3_all','unavailable') }}
+          {{ not is_state('sensor.template_wlanthermo_channel_3_all','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_channel_3_all','color') }}
+          {{ state_attr('sensor.template_wlanthermo_channel_3_all','color') }}
 
   - sensor:
       - name: wlanthermo_channel_4_color
         unique_id: wlanthermo_channel_4_color
         availability: >
-          {{ not is_state('sensor.wlanthermo_channel_4_all','unavailable') }}
+          {{ not is_state('sensor.template_wlanthermo_channel_4_all','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_channel_4_all','color') }}
+          {{ state_attr('sensor.template_wlanthermo_channel_4_all','color') }}
 
   - sensor:
       - name: wlanthermo_channel_5_color
         unique_id: wlanthermo_channel_5_color
         availability: >
-          {{ not is_state('sensor.wlanthermo_channel_5_all','unavailable') }}
+          {{ not is_state('sensor.template_wlanthermo_channel_5_all','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_channel_5_all','color') }}
+          {{ state_attr('sensor.template_wlanthermo_channel_5_all','color') }}
 
   - sensor:
       - name: wlanthermo_channel_6_color
         unique_id: wlanthermo_channel_6_color
         availability: >
-          {{ not is_state('sensor.wlanthermo_channel_6_all','unavailable') }}
+          {{ not is_state('sensor.template_wlanthermo_channel_6_all','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_channel_6_all','color') }}
+          {{ state_attr('sensor.template_wlanthermo_channel_6_all','color') }}
 
   - sensor:
       - name: wlanthermo_pitmaster_set_color
@@ -575,7 +575,7 @@ template:
         availability: >
           {{ not is_state('sensor.wlanthermo','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'set_color') }}
+          {{ state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'set_color') }}
 
   - sensor:
       - name: wlanthermo_pitmaster_value_color
@@ -583,19 +583,19 @@ template:
         availability: >
           {{ not is_state('sensor.wlanthermo','unavailable') }}
         state: >
-          {{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'value_color') }}
+          {{ state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'value_color') }}
 
   - number:
     - unique_id: wlanthermo_channel_1_max
       name: >
-        #1 {{ state_attr('sensor.wlanthermo_channel_1_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_1_timer','on') %}Target{% else %}Maximum{% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_channel_1_all', 'max') | int(0) }}"
+        #1 {{ state_attr('sensor.template_wlanthermo_channel_1_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_3_timer','on') %}Target{% else %}Maximum{% endif %}
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_1_all', 'max') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_1_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_1_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":1,"max":{{ value }}}
@@ -606,14 +606,14 @@ template:
 
     - unique_id: wlanthermo_channel_2_max
       name: >
-        #2 {{ state_attr('sensor.wlanthermo_channel_2_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_2_timer','on') %}Target{% else %}Maximum{% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_channel_2_all', 'max') | int(0) }}"
+        #2 {{ state_attr('sensor.template_wlanthermo_channel_2_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_3_timer','on') %}Target{% else %}Maximum{% endif %}
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_2_all', 'max') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_2_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_2_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":2,"max":{{ value }}}
@@ -624,14 +624,14 @@ template:
 
     - unique_id: wlanthermo_channel_3_max
       name: >
-        #3 {{ state_attr('sensor.wlanthermo_channel_3_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_3_timer','on') %}Target{% else %}Maximum{% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_channel_3_all', 'max') | int(0) }}"
+        #3 {{ state_attr('sensor.template_wlanthermo_channel_3_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_3_timer','on') %}Target{% else %}Maximum{% endif %}
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_3_all', 'max') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_3_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_3_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":3,"max":{{ value }}}
@@ -642,14 +642,14 @@ template:
 
     - unique_id: wlanthermo_channel_4_max
       name: >
-        #4 {{ state_attr('sensor.wlanthermo_channel_4_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_4_timer','on') %}Target{% else %}Maximum{% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_channel_4_all', 'max') | int(0) }}"
+        #4 {{ state_attr('sensor.template_wlanthermo_channel_4_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_4_timer','on') %}Target{% else %}Maximum{% endif %}
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_4_all', 'max') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_4_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_4_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":4,"max":{{ value }}}
@@ -660,14 +660,14 @@ template:
 
     - unique_id: wlanthermo_channel_5_max
       name: >
-        #5 {{ state_attr('sensor.wlanthermo_channel_5_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_5_timer','on') %}Target{% else %}Maximum{% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_channel_5_all', 'max') | int(0) }}"
+        #5 {{ state_attr('sensor.template_wlanthermo_channel_5_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_5_timer','on') %}Target{% else %}Maximum{% endif %}
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_5_all', 'max') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_5_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_5_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":5,"max":{{ value }}}
@@ -678,14 +678,14 @@ template:
 
     - unique_id: wlanthermo_channel_6_max
       name: >
-        #6 {{ state_attr('sensor.wlanthermo_channel_6_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_6_timer','on') %}Target{% else %}Maximum{% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_channel_6_all', 'max') | int(0) }}"
+        #6 {{ state_attr('sensor.template_wlanthermo_channel_6_all', 'name') }} {% if is_state('input_boolean.wlanthermo_channel_6_timer','on') %}Target{% else %}Maximum{% endif %}
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_6_all', 'max') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_6_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_6_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":6,"max":{{ value }}}
@@ -696,14 +696,14 @@ template:
 
   - number:
     - unique_id: wlanthermo_channel_1_min
-      name: "#1 {{ state_attr('sensor.wlanthermo_channel_1_all', 'name') }} Minimum"
-      state: "{{ state_attr('sensor.wlanthermo_channel_1_all', 'min') | int(0) }}"
+      name: "#1 {{ state_attr('sensor.template_wlanthermo_channel_1_all', 'name') }} Minimum"
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_1_all', 'min') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_1_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_1_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":1,"min":{{ value }}}
@@ -713,14 +713,14 @@ template:
       icon: mdi:thermometer-low
 
     - unique_id: wlanthermo_channel_2_min
-      name: "#2 {{ state_attr('sensor.wlanthermo_channel_2_all', 'name') }} Minimum"
-      state: "{{ state_attr('sensor.wlanthermo_channel_2_all', 'min') | int(0) }}"
+      name: "#2 {{ state_attr('sensor.template_wlanthermo_channel_2_all', 'name') }} Minimum"
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_2_all', 'min') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_2_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_2_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":2,"min":{{ value }}}
@@ -730,14 +730,14 @@ template:
       icon: mdi:thermometer-low
 
     - unique_id: wlanthermo_channel_3_min
-      name: "#3 {{ state_attr('sensor.wlanthermo_channel_3_all', 'name') }} Minimum"
-      state: "{{ state_attr('sensor.wlanthermo_channel_3_all', 'min') | int(0) }}"
+      name: "#3 {{ state_attr('sensor.template_wlanthermo_channel_3_all', 'name') }} Minimum"
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_3_all', 'min') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_3_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_3_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":3,"min":{{ value }}}
@@ -747,14 +747,14 @@ template:
       icon: mdi:thermometer-low
 
     - unique_id: wlanthermo_channel_4_min
-      name: "#4 {{ state_attr('sensor.wlanthermo_channel_4_all', 'name') }} Minimum"
-      state: "{{ state_attr('sensor.wlanthermo_channel_4_all', 'min') | int(0) }}"
+      name: "#4 {{ state_attr('sensor.template_wlanthermo_channel_4_all', 'name') }} Minimum"
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_4_all', 'min') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_4_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_4_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":4,"min":{{ value }}}
@@ -764,14 +764,14 @@ template:
       icon: mdi:thermometer-low
 
     - unique_id: wlanthermo_channel_5_min
-      name: "#5 {{ state_attr('sensor.wlanthermo_channel_5_all', 'name') }} Minimum"
-      state: "{{ state_attr('sensor.wlanthermo_channel_5_all', 'min') | int(0) }}"
+      name: "#5 {{ state_attr('sensor.template_wlanthermo_channel_5_all', 'name') }} Minimum"
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_5_all', 'min') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_5_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_5_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":5,"min":{{ value }}}
@@ -781,14 +781,14 @@ template:
       icon: mdi:thermometer-low
 
     - unique_id: wlanthermo_channel_6_min
-      name: "#6 {{ state_attr('sensor.wlanthermo_channel_6_all', 'name') }} Minimum"
-      state: "{{ state_attr('sensor.wlanthermo_channel_6_all', 'min') | int(0) }}"
+      name: "#6 {{ state_attr('sensor.template_wlanthermo_channel_6_all', 'name') }} Minimum"
+      state: "{{ state_attr('sensor.template_wlanthermo_channel_6_all', 'min') | int(0) }}"
       availability: >
-        {{ not is_state('sensor.wlanthermo_channel_6_all', 'unavailable') }}
+        {{ not is_state('sensor.template_wlanthermo_channel_6_all', 'unavailable') }}
       set_value:
         service: mqtt.publish
         data_template:
-          topic: WLanThermo/MINIV3/set/channels
+          topic: WLanThermo/wlanthermo/set/channels
           retain: true
           payload: >
             {"number":6,"min":{{ value }}}
@@ -802,19 +802,19 @@ template:
       name: wlanthermo_pitmaster_profile
       icon: mdi:fan-speed-1
       state: >
-        {% if not is_state('sensor.wlanthermo_settings', 'unavailable') and (not is_state('sensor.wlanthermo_settings', 'unknown')) and (not is_state('sensor.wlanthermo_pitmaster_1_all', 'unavailable')) %}
-        {{ state_attr('sensor.wlanthermo_settings', 'pid')[state_attr('sensor.wlanthermo_pitmaster_1_all', 'pid')].name }}
+        {% if not is_state('sensor.wlanthermo_settings', 'unavailable') and (not is_state('sensor.wlanthermo_settings', 'unknown')) and (not is_state('sensor.template_wlanthermo_pitmaster_1_all', 'unavailable')) %}
+        {{ state_attr('sensor.wlanthermo_settings', 'pid')[state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'pid')].name }}
         {% else %}
-        {{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'pid') | int(0) }}
+        {{ state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'pid') | int(0) }}
         {% endif %}
       availability: >
         {{ not is_state('sensor.wlanthermo_pitmaster_value', 'unavailable') }}
       select_option:
           service: mqtt.publish
           data_template:
-            topic: WLanThermo/MINIV3/set/pitmaster
+            topic: WLanThermo/wlanthermo/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(option)+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.template_wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(option)+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
       options: |-
         [
         {% if not is_state('sensor.wlanthermo_settings', 'unavailable') and (not is_state('sensor.wlanthermo_settings', 'unknown')) %}
@@ -831,20 +831,20 @@ template:
       name: wlanthermo_pitmaster_channel
       icon: mdi:pound
       state: >
-        #{{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel') }} {% if not is_state('sensor.wlanthermo_channel_'~(state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel'))~'_all','unavailable') and item.temp < 999 %}{{ state_attr('sensor.wlanthermo_channel_'~(state_attr('sensor.wlanthermo_pitmaster_1_all', 'channel'))~'_all', 'name') }}{% else %}(unavailable){% endif %}
+        #{{ state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'channel') }} {% if not is_state('sensor.template_wlanthermo_channel_'~(state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'channel'))~'_all','unavailable') %}{{ state_attr('sensor.template_wlanthermo_channel_'~(state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'channel'))~'_all', 'name') }}{% else %}(unavailable){% endif %}
       availability: >
         {{ not is_state('sensor.wlanthermo_pitmaster_value', 'unavailable') }}
       select_option:
           service: mqtt.publish
           data_template:
-            topic: WLanThermo/MINIV3/set/pitmaster
+            topic: WLanThermo/wlanthermo/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(option)+1)+'',"pid":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_channel'',''options'').index(option)+1)+'',"pid":''~state_attr(''sensor.template_wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_mode'')+''"}]''}}'
       options: |-
         [
         {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
         {% for item in state_attr('sensor.wlanthermo', 'channel') %}
-        {% if not is_state('sensor.wlanthermo_channel_'~item.number~'_all','unavailable') and item.temp < 999 %}
+        {% if not is_state('sensor.template_wlanthermo_channel_'~item.number~'_all','unavailable') and item.temp < 999 %}
         '#{{ item.number }} {{ item.name }}',
         {% else %}
         '#{{ item.number }} (unavailable)',
@@ -859,7 +859,7 @@ template:
     - unique_id: wlanthermo_pitmaster_mode
       name: wlanthermo_pitmaster_mode
       icon: >
-        {% set pmTyp = state_attr('sensor.wlanthermo_pitmaster_1_all', 'type') | string() %}
+        {% set pmTyp = state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'type') | string() %}
         {% if pmTyp == 'auto' %}
         mdi:fan-auto
         {% else %}
@@ -869,15 +869,15 @@ template:
         mdi:fan-off
         {% endif %}
         {% endif %}
-      state: "{{ state_attr('sensor.wlanthermo_pitmaster_1_all', 'type') | string() }}"
+      state: "{{ state_attr('sensor.template_wlanthermo_pitmaster_1_all', 'type') | string() }}"
       availability: >
         {{ not is_state('sensor.wlanthermo_pitmaster_value', 'unavailable') }}
       select_option:
           service: mqtt.publish
           data_template:
-            topic: WLanThermo/MINIV3/set/pitmaster
+            topic: WLanThermo/wlanthermo/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+option+''"}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.template_wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.template_wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":"''+option+''"}]''}}'
       options: |-
         [
         {% if not is_state('sensor.wlanthermo', 'unavailable') and (not is_state('sensor.wlanthermo', 'unknown')) %}
@@ -892,15 +892,15 @@ template:
   - number:
       - unique_id: wlanthermo_pitmaster_value
         name: wlanthermo_pitmaster_value
-        state: "{{ states('sensor.wlanthermo_pitmaster_1_all') | float(0) }}"
+        state: "{{ states('sensor.template_wlanthermo_pitmaster_1_all') | float(0) }}"
         availability: >
           {{ not is_state('sensor.wlanthermo_pitmaster_value', 'unavailable') }}
         set_value:
           service: mqtt.publish
           data_template:
-            topic: WLanThermo/MINIV3/set/pitmaster
+            topic: WLanThermo/wlanthermo/set/pitmaster
             retain: true
-            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~value+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.template_wlanthermo_pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.template_wlanthermo_pitmaster_1_all'', ''pid'')+'',"value":''~value+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
         min: 0
         max: 100
         step: 1
